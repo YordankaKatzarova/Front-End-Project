@@ -14,7 +14,7 @@ body,
 }
 
 body {
-    background-image: linear-gradient(-100deg, #FF8426 0%, #FF6F3B 100%);
+    background-image: linear-gradient(-150deg, #FFE099 0%, #FF6F3B 100%);
     color: #333;
     font-size: 0.875rem;
 }
@@ -64,7 +64,7 @@ LOGIN & REGISTER
 
 .auth-input:focus {
     border-color: #FF8426;
-    box-shadow: 0 1px 0 0 #FF8426;
+    box-shadow: 0 1px 0 0 #FFB366;
 }
 
 .auth-actions {
@@ -92,12 +92,12 @@ LOGIN & REGISTER
 .auth-button:hover,
 .auth-button:focus,
 .auth-button:active {
-    background-color: #FF8426;
+    background-color: #FFB366;
 }
 
 .auth-link {
     font-size: 1rem;
-    color: #FF8426;
+    color: #FFB366;
     text-decoration: none;
     margin-top: 1.75rem;
 }
