@@ -14,7 +14,7 @@ body,
 }
 
 body {
-    background-image: linear-gradient(-100deg, #A2F2F1 0%, #B19AFE 100%);
+    background-image: linear-gradient(-100deg, #FF8426 0%, #FF6F3B 100%);
     color: #333;
     font-size: 0.875rem;
 }
@@ -47,15 +47,15 @@ LOGIN & REGISTER
 
 .auth-subtitle {
     color: #848694;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 400;
-    margin-bottom: 3.5rem;
+    margin-bottom: 1.5rem;
     max-width: 100%;
 }
 
 .auth-input {
     border: none;
-    border-bottom: 1px solid #4154E0;
+    border-bottom: 1px solid #FF8426;
     font-size: 0.875rem;
     margin-bottom: 1rem;
     height: 2.5rem;
@@ -63,8 +63,8 @@ LOGIN & REGISTER
 }
 
 .auth-input:focus {
-    border-color: #557de0;
-    box-shadow: 0 1px 0 0 #557de0;
+    border-color: #FF8426;
+    box-shadow: 0 1px 0 0 #FF8426;
 }
 
 .auth-actions {
@@ -78,7 +78,7 @@ LOGIN & REGISTER
 }
 
 .auth-button {
-    background-color: #00BFD9;
+    background-color: #FF6F3B;
     border: none;
     border-radius: 1.25rem;
     color: #FFF;
@@ -92,12 +92,12 @@ LOGIN & REGISTER
 .auth-button:hover,
 .auth-button:focus,
 .auth-button:active {
-    background-color: #0097C5;
+    background-color: #FF8426;
 }
 
 .auth-link {
     font-size: 1rem;
-    color: #4154E0;
+    color: #FF8426;
     text-decoration: none;
     margin-top: 1.75rem;
 }
@@ -198,10 +198,14 @@ PROFILE
     padding: 0.5rem;
 }
 
-.profile-image {
-    border-radius: 50%;
-    width: 5.25rem;
-    height: 5.25rem;
+.logo-image {
+    width: 15rem;
+    height: 7rem;
+	max-width: 100%;
+	height:auto;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .profile-name {
