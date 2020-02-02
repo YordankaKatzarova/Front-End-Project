@@ -33,7 +33,7 @@ LOGIN & REGISTER
  */
 .auth {
     display: flex;
-	background: url("landscape.jpg");
+	background: url('../images/landscape.jpg');
 	background-repeat: no-repeat;
 	display: flex;
 	background-size: cover;
