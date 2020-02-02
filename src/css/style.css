@@ -11,10 +11,18 @@ body,
 .auth {
     width: 100%;
     height: 100%;
+	
 }
 
+.background-image{
+	background-size: cover;
+	position: absolute;
+	
+}
+
+
 body {
-    background-image: linear-gradient(-150deg, #FFE099 0%, #FF6F3B 100%);
+	linear-gradient(-150deg, #FFE099 0%, #FF6F3B 100%);
     color: #333;
     font-size: 0.875rem;
 }
@@ -25,11 +33,19 @@ LOGIN & REGISTER
  */
 .auth {
     display: flex;
+	background: url("landscape.jpg");
+	background-repeat: no-repeat;
+	display: flex;
+	background-size: cover;
+	left: 0px;
+	top: 0px;
+	z-index: -1;
 }
 
 .auth-form {
     border-radius: 0.5rem;
     background-color: #FFF;
+	opacity: 0.87;
     display: flex;
     flex-direction: column;
     padding: 2.5rem;
@@ -47,16 +63,16 @@ LOGIN & REGISTER
 
 .auth-subtitle {
     color: #848694;
-    font-size: 1.3rem;
+    font-size: 1.7rem;
     font-weight: 400;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.7rem;
     max-width: 100%;
 }
 
 .auth-input {
     border: none;
     border-bottom: 1px solid #FF8426;
-    font-size: 0.875rem;
+    font-size: 0.95rem;
     margin-bottom: 1rem;
     height: 2.5rem;
     width: 100%;
@@ -199,8 +215,8 @@ PROFILE
 }
 
 .logo-image {
-    width: 15rem;
-    height: 7rem;
+    width: 18rem;
+    height: 9rem;
 	max-width: 100%;
 	height:auto;
 	display: block;

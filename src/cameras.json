@@ -1,0 +1,114 @@
+{
+  "photo_cameras": {
+    "camera": [
+      {
+        "camera_name": "Fujifilm Instax Mini 9 Ice Blue",
+        "camera_image": "instaxMini9blue.jpg",
+        "camera_type": "Instant camera",
+        "camera_color": "Blue",
+        "camera_manifacturer": "Fujifilm",
+        "camera_price": "170.00",
+        "camera_description": " lenstype: Fujinon; lens: 12.7; papertype: Fujifilm instax (86x54mm) "
+      },
+      {
+        "camera_name": "Fujifilm Instax Mini 9 Green",
+        "camera_image": "instaxMini9green.jpg",
+        "camera_type": "Instant camera",
+        "camera_color": "Green",
+        "camera_manifacturer": "Fujifilm",
+        "camera_price": "170.00",
+        "camera_description": " lenstype: Fujinon; lens: 12.7; papertype: Fujifilm instax (86x54mm) "
+      },
+      {
+        "camera_name": "Fujifilm Instax Mini 9 White",
+        "camera_image": "instaxMini9white.jpg",
+        "camera_type": "Instant camera",
+        "camera_color": "White",
+        "camera_manifacturer": "Fujifilm",
+        "camera_price": "170.00",
+        "camera_description": " lenstype: Fujinon; lens: 12.7; papertype: Fujifilm instax (86x54mm) "
+      },
+      {
+        "camera_name": "Fujifilm Instax Mini 70 Yellow",
+        "camera_image": "instaxMini70yellow.jpg",
+        "camera_type": "Instant camera",
+        "camera_color": "Yellow",
+        "camera_manifacturer": "Fujifilm",
+        "camera_price": "250.00",
+        "camera_description": " lenstype: Fujinon; lens: 12.7; papertype: Fujifilm instax (62x46mm) "
+      },
+      {
+        "camera_name": "Fujifilm Instax Mini 70 Gold",
+        "camera_image": "instaxMini70bgold.jpg",
+        "camera_type": "Instant camera",
+        "camera_color": "Gold",
+        "camera_manifacturer": "Fujifilm",
+        "camera_price": "250.00",
+        "camera_description": " lenstype: Fujinon; lens: 12.7; papertype: Fujifilm instax (62x46mm) "
+      },
+      {
+        "camera_name": "Fujifilm Instax Mini 70 Black",
+        "camera_image": "instaxMini70black.jpg",
+        "camera_type": "Instant camera",
+        "camera_color": "Black",
+        "camera_manifacturer": "Fujifilm",
+        "camera_price": "250.00",
+        "camera_description": " lenstype: Fujinon; lens: 12.7; papertype: Fujifilm instax (62x46mm) "
+      },
+      {
+        "camera_name": "Canon IXUS 185 Silver",
+        "camera_image": "canonIxus185.jpg",
+        "camera_type": "Compact camera",
+        "camera_color": "Silver",
+        "camera_manifacturer": "Canon",
+        "camera_price": "340.00",
+        "camera_description": " HD video; processor: DIGIC 4+ ; shutterspeed: 15-1/2000sec; iso: 100-1600 "
+      },
+      {
+        "camera_name": "Canon IXUS 285 HS Black",
+        "camera_image": "canonIxus285.jpg",
+        "camera_type": "Compact camera",
+        "camera_color": "Black",
+        "camera_manifacturer": "Canon",
+        "camera_price": "390.00",
+        "camera_description": " HD video; processor: DIGIC 4+ ; shutterspeed: 15-1/2000sec; iso: 80-3200 "
+      },
+      {
+        "camera_name": "Canon IXUS 190 Black",
+        "camera_image": "canonIxus190.jpg",
+        "camera_type": "Compact camera",
+        "camera_color": "Black",
+        "camera_manifacturer": "Canon",
+        "camera_price": "360.00",
+        "camera_description": " HD video; processor: DIGIC 4+ ; shutterspeed: 15-1/2000sec; iso: 100-1600 "
+      },
+      {
+        "camera_name": "Canon EOS 250D",
+        "camera_image": "canonEOS250D.jpg",
+        "camera_type": "DSLR",
+        "camera_color": "White",
+        "camera_manifacturer": "Canon",
+        "camera_price": "1159.00",
+        "camera_description": " processor: Digit 8; focus_points: 9; storage: SD, SDHC, SDXC; megapixels: 24 "
+      },
+      {
+        "camera_name": "Nikon D7500",
+        "camera_image": "nikonD7500.jpg",
+        "camera_type": "DSLR",
+        "camera_color": "Black",
+        "camera_manifacturer": "Nikon",
+        "camera_price": "1999.00",
+        "camera_description": " processor: Expeed 5; focus_points: 51; storage: SD; megapixels: 24 "
+      },
+      {
+        "camera_name": "Nikon D3500",
+        "camera_image": "nikonD3500.jpg",
+        "camera_type": "DSLR",
+        "camera_color": "Black",
+        "camera_manifacturer": "Nikon",
+        "camera_price": "599.00",
+        "camera_description": " processor: Expeed 4; focus_points: 11; storage: SD; megapixels: 24 "
+      }
+    ]
+  }
+}
