@@ -3,7 +3,6 @@
 
 <head>
 	<meta charset="utf-8" />
-	<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
 	<title>ReservEasy</title>
 	<link rel="stylesheet" href="css/style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -13,16 +12,16 @@
 	<div class="auth">
 	
 			
-		<form class="auth-form" id="login-form">
+		<form class="auth-form" name="auth-form" id="login-form" action="controller.js" onsubmit="validateForm()" method="POST">
 			
-			<img src="images/reservEasy_logo.png" alt="BP" class="logo-image">
+			<img src="images/reservEasy_logo.png" alt="logo" class="logo-image">
 				
 			<h1 class="auth-subtitle">Login</h1>
 	
 			<div class="errors" id="errors"></div>
 	
-			<input type="text" name="username" placeholder="Username" class="auth-input" />
-			<input type="password" name="password" placeholder="Password" class="auth-input" />
+			<input type="text" name="email" placeholder="Email" class="auth-input" required />
+			<input type="password" name="password" placeholder="Password" class="auth-input" required />
 	
 			<div class="auth-actions">
 				<button type="submit" class="auth-button">Log in</button>
@@ -32,10 +31,8 @@
 	
 	</div>
 
-	<!-- Loads firbase client API, initializes db facade & loads the controller code 
-	<script src="https://www.gstatic.com/firebasejs/5.5.0/firebase.js"></script>
-	<script src="scripts/db-facade.js"></script>
-	<script src="scripts/controller.js"></script> -->
+	
+	<script src="controller.js"></script> 
 
 </body>
 </html>

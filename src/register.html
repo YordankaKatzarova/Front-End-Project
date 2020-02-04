@@ -6,28 +6,29 @@
 	<title>ReservEasy - Register</title>
 	<link rel="stylesheet" href="css/style.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<script src="D:\uni\front- end\Front-End-Project\src\controller.js"></script>
+	
 </head>
 <body>
 	<div class="auth">
-		<form class="auth-form" id="register-form" action="/controller.js" onSubmit="return validateForm()" method="POST">
-			<img src="images/reservEasy_logo.png" alt="BP" class="logo-image">
+		<form class="auth-form" name="auth-form" id="register-form" action="controller.js" onsubmit="validateForm()" method="POST">
+		
+			<img src="images/reservEasy_logo.png" alt="logo" class="logo-image">
 			
-			<h1 class="auth-subtitle">Join us</h2>
+			<h1 class="auth-subtitle">Reserve easy now!</h2>
 
-			<input type="text" name="username" placeholder="Username" class="auth-input" />
-			<input type="password" name="password" placeholder="Password" class="auth-input" pattern="[A-Za-z0-9]+" />
-			<input type="text" name="clubCard" placeholder="Club card ID" class="auth-input" pattern="[0-9]{13,16}" />
+			<input type="text" name="email" placeholder="Email" class="auth-input" required />
+			<input type="password" name="password" placeholder="Password" class="auth-input" required />
+			<input type="text" name="clubCard" placeholder="Club card ID" class="auth-input" pattern="[0-9]{4}" title="Insert the 4-digit card ID" />
 
 			<div class="auth-actions">
 				<button type="submit" class="auth-button">Register now</button>
 			</div>
 		</form>
 	</div>
-	<!-- Loads firbase client API, initializes db facade & loads the controller code -->
-	<script src="https://www.gstatic.com/firebasejs/5.5.0/firebase.js"></script>
 	
-	<script src="scripts/controller.js"></script>
+	
 </body>
+
+<script src="controller.js"></script>
 
 </html>
