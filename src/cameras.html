@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="photos/favicon.ico">
+	<title>Travel Gadget</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<link href="css/style.css" rel="stylesheet">
+	
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+
+    <script src="handlebars-v4.0.5.js"></script>
+
+</head>
+
+<body>
+
+	<h1 class="ttl">Travel Gadget</h1>
+	<h2 class="info">Hotels of the World</h2>
+
+	<nav class="navbar navbar-default" role="navigation">
+    	<div class="container">
+        	<div class="navbar-header">
+            	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                	<span class="sr-only">Toggle navigation</span>
+                	<span class="icon-bar"></span>
+                	<span class="icon-bar"></span>
+                	<span class="icon-bar"></span>
+            	</button>
+            	<a class="navbar-brand" href="index.html">Travel Gadget</a>
+        	</div>
+        	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            	<ul class="nav navbar-nav">
+                	<li>
+                    	<a href="index.html">Home</a>
+                	</li>
+                	<li>
+                		<a href="hotels.html"> Hotels</a>
+                	</li>
+                	<li>
+                    	<a href="index.html#about">About</a>
+                	</li>
+             	</ul>
+        	</div>
+    	</div>
+	</nav>
+
+	<div class="container">
+		<div class="row">
+        	<ul class="boxes"></ul>
+        	<p class="error"></p>
+           	<script id="catalog" type="text/x-handlebars-template">
+
+                {{#each hotel}}
+                  	<div class="col-sm-4 text-center">
+                   		<li>
+                			<div class="panel panel-default">
+                				<div class="panel-heading">{{name}}</div>
+               						<div class="panel-body">
+                						<img src="photos/{{image}}.jpeg" class="img-responsive" data-toggle="modal" data-target="#{{price}}">
+                						<div id="{{price}}" class="modal fade">
+								    		<div class="modal-dialog">
+												<div class="modal-content">
+     									 			<div class="modal-header">
+        												<button type="button" class="close" data-dismiss="modal">&times;</button>
+       			 										<p class="modal-title">{{name}}</p>
+      												</div>
+      												<div class="modal-body">
+      													<img src="photos/{{image}}.jpeg" class="inner">
+      													<p>Destination: {{destination}}</p>
+                										<p> Price: {{price}} </p>
+                										<p> Rating: {{rating}} </p>
+                										<p> Stars: {{stars}} </p>
+      												</div>
+      												<div class="modal-footer">
+        												<button type="button" class= "btn" data-toggle="button" onclick="window.open('{{link}}');"> Reserve for {{price}}$ </button>
+      												</div>
+   											 	</div>
+											</div>
+										</div>
+     						 		</div>
+                				</div>
+                			</div>
+                		</li>
+                 	</div>
+                {{/each}}
+            </script>
+		</div>
+	</div>
+
+	<script src="db.js"></script>
+
+</body>
+</html>
