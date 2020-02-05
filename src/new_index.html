@@ -10,7 +10,6 @@
     <title>ReservEasy shop</title>
 	<link href="css/style.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<script src="scripts/shop.js" async></script>
 	
 </head>
 
@@ -52,10 +51,10 @@
 	</div>
 	<br>
 	
-	<div style="padding-left:20px; padding-right:20px;">
+	<div style="padding-left:20px; padding-right:20px;" id="about">
 	  
 	  <hr>
-	 <p> text here ------ </br> text here ------ </br>text here ------ </br>text here ------ </br> </p>
+	 <p class="about"> text here ------ </br> text here ------ </br>text here ------ </br>text here ------ </br> </p>
 	  <hr>
 	  
 	</div>
@@ -63,7 +62,7 @@
 
 	 <section class="products">
 		  <div class="shop-title">
-			<h2>our products</h2>
+			<h2 id="cameras">our products</h2>
 		  </div>
 		  <div id="camerasContainer" class="camerasContainer">
 		  </div>
@@ -72,7 +71,7 @@
 
 
 	 <section class="container content-section">
-            <h2 class="section-header">CART</h2>
+            <h2 class="section-header" id="cart">CART</h2>
             <div class="cart-row">
                 <span class="cart-item cart-header cart-column">ITEM</span>
                 <span class="cart-price cart-header cart-column">PRICE</span>
@@ -90,5 +89,5 @@
 	</body>
 	
 	<script src="scripts/slideshow.js"></script>
-	
+	<script src="scripts/shop.js"></script>
 </html>
