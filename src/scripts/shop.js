@@ -12,40 +12,6 @@ function request(url, method, callback) {
 
 request('https://c0a69d0c-f9ef-4ef7-be6a-f39493b8af03.mock.pstmn.io/cameras2', 'GET', loadCameras);
 
-// ------------------------------
-
-function loadProducts(data) {
-  console.log(data);
-  //let temp2 = `<h1 class="cameraName">${temp.camera_name}<h1>`;
-  var camerasContainer = document.getElementById('camerasContainer');
-  let camerasData = '';
-  let cameraRow = '<div class="cameraRow">';
-  let rowData = cameraRow;
-  let rowElements = 0;
-
-  for (let i = 0; i < data.cameras.length; i++) {
-    rowData += (
-      '<div class="cameraColumn">' + 
-        '<img src="images/'+ data.cameras[i].camera_image + '"' + 'alt="product" class="product-img">' +
-        '<button class="btn btn-primary shop-item-button"> Add to cart </button>' +
-        '<h2 class="cameraName">' + data.cameras[i].camera_name + '</h2>' +
-        '<h3 class="cameraPrice">' + data.cameras[i].camera_price + '</h3>' +
-     '</div>');
-    rowElements ++;
-	
-	
-    if (rowElements == 3) {
-		camerasData += rowData + '</div>';
-		rowData = cameraRow;
-		rowElements = 0;
-    } 
-  };
-  camerasContainer.innerHTML = camerasData;
-
-}
-
-// --------------------------------
-
 function loadCameras(data) {
   console.log(data);
   var camerasContainer = document.getElementById('camerasContainer');
@@ -54,11 +20,23 @@ function loadCameras(data) {
   for (let i = 0; i < data.cameras.length; i++) {
     camerasData += (
       '<article class="singleCamera">' + 
-        '<div class="img-container"><img src="images/'+ data.cameras[i].camera_image + '"' + 'alt="product" class="product-img">'
-		 +'<div class="overlay"> <div class="description"> description </div></div></div>' +
-        '<button class="btn btn-primary shop-item-button"><i class="fa fa-shopping-cart"></i> Add to cart </button>' +
-        '<h2 class="cameraName">' + data.cameras[i].camera_name + '</h2>' +
-        '<h3 class="cameraPrice">' + data.cameras[i].camera_price + " лв" +'</h3>' +
+        '<div class="img-container">' +
+            '<img src="images/'+ data.cameras[i].camera_image + '"' + 'alt="product" class="product-img">'+
+            '<div class="overlay">' +
+                '<div class="description">' +
+                    '<p>'+ 
+                    "Type: " + data.cameras[i].camera_type + '<br>' + 
+                    "Colo: " + data.cameras[i].camera_color + '<br>' +
+                    "Manifacturer: " + data.cameras[i].camera_manifacturer + '<br>' +
+                    '</p>' +
+                '</div>' +
+            '</div>'+
+        '</div>' +
+         '<div class="cameraInfo">' +
+            '<h2 class="cameraName">' + data.cameras[i].camera_name + '</h2>' +
+            '<h3 class="cameraPrice">' + data.cameras[i].camera_price + " лв" +'</h3>' +
+            '<button class="btn btn-primary shop-item-button" type="button"><i class="fa fa-shopping-cart"></i> Add to cart </button>' +
+        '</div>'+
      '</article>');
 	    
   };
@@ -69,12 +47,15 @@ function loadCameras(data) {
 // cart functions
 
 if (document.readyState == 'loading') {
+    debugger;
     document.addEventListener('DOMContentLoaded', ready)
+    
 } else {
     ready()
 }
 
 function ready() {
+    debugger;
     var removeCartItemButtons = document.getElementsByClassName('btn-danger')
     for (var i = 0; i < removeCartItemButtons.length; i++) {
         var button = removeCartItemButtons[i]
@@ -122,18 +103,17 @@ function quantityChanged(event) {
 function addToCartClicked(event) {
     var button = event.target
     var shopItem = button.parentElement.parentElement
-    var title = shopItem.getElementsByClassName('shop-item-title')[0].innerText
-    var price = shopItem.getElementsByClassName('shop-item-price')[0].innerText
-    var imageSrc = shopItem.getElementsByClassName('shop-item-image')[0].src
-    addItemToCart(title, price, imageSrc)
+    var title = shopItem.getElementsByClassName('cameraName')[0].innerText
+    var price = shopItem.getElementsByClassName('cameraPrice')[0].innerText
+    addItemToCart(title, price)
     updateCartTotal()
 }
 
-function addItemToCart(title, price, imageSrc) {
+function addItemToCart(title, price) {
     var cartRow = document.createElement('div')
     cartRow.classList.add('cart-row')
     var cartItems = document.getElementsByClassName('cart-items')[0]
-    var cartItemNames = cartItems.getElementsByClassName('cart-item-title')
+    var cartItemNames = cartItems.getElementsByClassName('cameraName')
     for (var i = 0; i < cartItemNames.length; i++) {
         if (cartItemNames[i].innerText == title) {
             alert('This item is already added to the cart')
@@ -142,10 +122,9 @@ function addItemToCart(title, price, imageSrc) {
     }
     var cartRowContents = `
         <div class="cart-item cart-column">
-            <img class="cart-item-image" src="${camera_image}" width="100" height="100">
-            <span class="cart-item-title">${camera_name}</span>
+            <span class="cameraName">${title}</span>
         </div>
-        <span class="cart-price cart-column">${camera_price}</span>
+        <span class="cart-price cart-column">${price}</span>
         <div class="cart-quantity cart-column">
             <input class="cart-quantity-input" type="number" value="1">
             <button class="btn btn-danger" type="button">REMOVE</button>
