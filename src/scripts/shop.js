@@ -23,10 +23,10 @@ function loadCameras(data) {
         '<div class="img-container">' +
             '<img src="images/'+ data.cameras[i].camera_image + '"' + 'alt="product" class="product-img">'+
             '<div class="overlay">' +
-                '<div class="description">' +
-                    '<p>'+ 
+                '<div>' +
+                    '<p class="description">'+ 
                     "Type: " + data.cameras[i].camera_type + '<br>' + 
-                    "Colo: " + data.cameras[i].camera_color + '<br>' +
+                    "Color: " + data.cameras[i].camera_color + '<br>' +
                     "Manifacturer: " + data.cameras[i].camera_manifacturer + '<br>' +
                     '</p>' +
                 '</div>' +
@@ -41,21 +41,18 @@ function loadCameras(data) {
 	    
   };
   camerasContainer.innerHTML = camerasData;
-
+  document.addEventListener('DOMContentLoaded', ready)
 }
 
 // cart functions
 
-if (document.readyState == 'loading') {
-    debugger;
-    document.addEventListener('DOMContentLoaded', ready)
-    
-} else {
-    ready()
-}
+// if (document.readyState == 'loading') {
+//     document.addEventListener('DOMContentLoaded', ready)
+// } else {
+//     ready()
+// }
 
 function ready() {
-    debugger;
     var removeCartItemButtons = document.getElementsByClassName('btn-danger')
     for (var i = 0; i < removeCartItemButtons.length; i++) {
         var button = removeCartItemButtons[i]
@@ -71,7 +68,7 @@ function ready() {
     var addToCartButtons = document.getElementsByClassName('shop-item-button')
     for (var i = 0; i < addToCartButtons.length; i++) {
         var button = addToCartButtons[i]
-        button.addEventListener('click', addToCartClicked)
+        button.addEventListener('click', console.log("bla"))
     }
 
     document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked)
