@@ -441,7 +441,25 @@ hr {
   to {opacity: 1};
 }
 
+.cameraColumn {
+  float: left;
+  width: 25%;
+  padding: 10px;
+}
 
+
+.cameraRow:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.cameraName {
+  font-size: 10px;
+}
+.cameraPrice {
+  font-size: 10px;
+}
 
 
 

@@ -10,27 +10,36 @@ function request(url, method, callback) {
   xhttp.send();
 }
 
-request('https://c0a69d0c-f9ef-4ef7-be6a-f39493b8af03.mock.pstmn.io/photoCameras', 'GET', loadProducts);
+request('https://c0a69d0c-f9ef-4ef7-be6a-f39493b8af03.mock.pstmn.io/cameras2', 'GET', loadProducts);
 
 function loadProducts(data) {
-  let temp = data.photo_cameras.camera[0];
-  console.log(temp);
+  console.log(data);
+  //let temp2 = `<h1 class="cameraName">${temp.camera_name}<h1>`;
+  var camerasContainer = document.getElementById('camerasContainer');
+  let camerasData = '';
+  let cameraRow = '<div class="cameraRow">';
+  let rowData = cameraRow;
+  let rowElements = 0;
 
-  let temp2 = `<h1 class="cameraName">${temp.camera_name}<h1>`;
+  for (let i = 0; i < data.cameras.length; i++) {
+    rowData += (
+      '<div class="cameraColumn">' + 
+        '<img src="images/'+ data.cameras[i].camera_image + '"' + 'alt="product" class="product-img">' +
+        '<button class="bag-btn">' +
+        '<h1 class="cameraName">' + data.cameras[i].camera_name + '<h1>' +
+        '<h2 class="cameraPrice">' + data.cameras[i].camera_price + '<h2>' +
+     '</div>');
+    rowElements ++;
+    if (rowElements == 3) {
+      camerasData += rowData + '</div>';
+      rowData = cameraRow;
+      rowElements = 0;
+    }
+  };
+  camerasContainer.innerHTML = camerasData;
 
-
-  var cameras = '<div class="cameras">';
-  let container = document.getElementById('container');
-  data.photo_cameras.camera.forEach(camera => {
-    cameras += ('<div class="camera ">' + '<h1 class="cameraName">' + camera.camera_name + '<h1>' + '<h2 class="cameraPrice">' + camera.camera_price + '<h2>' + '</div>');
-    cameras += '</div>';
-  });
-container.innerHTML= cameras;
-  
-  console.log(cameras);
 }
 
-loadProducts();
 
 
 
