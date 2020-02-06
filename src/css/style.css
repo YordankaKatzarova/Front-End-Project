@@ -428,12 +428,15 @@ hr {
     padding: 0 1.4em;
 }
 
-
 .cart-header {
-    font-weight: normal;
+    font-weight: bold;
+    font-size: 1.25em;
     color: #333;
     text-align: center;
-    font-size: 2.5em;
+}
+
+.cart-title{
+	font-size: 2.5em;
 }
 
 .cart-column {
@@ -442,14 +445,7 @@ hr {
     border-bottom: 1px solid black;
     padding-bottom: 10px;
     margin-top: 10px;
-}
-.cart-row:last-child {
-    border-bottom: 1px solid black;
-}
-
-.cart-row:last-child 
-.cart-column {
-    border: none;
+	margin-right: 1.5em;
 }
 
 .cart-row {
@@ -467,7 +463,7 @@ hr {
 }
 
 .cart-quantity {
-    width: 10%;
+    width: 15%;
 }
 
 .cart-reserve{
@@ -482,14 +478,6 @@ hr {
 
 .cart-remove{
 	width: 10%;
-}
-
-.cart-checkbox{
-	width: 10%;
-}
-
-.cart-checkbox-input{
-	margin-left:50%;	
 }
 
 .cart-camera-name {
@@ -511,6 +499,21 @@ hr {
     margin-right: 25px;
 }
 
+.cart-checkbox{
+	width: 15%;
+}
+
+.cart-checkbox-input{
+	margin-left:50%;
+}
+.cart-row:last-child {
+    border-bottom: 1px solid black;
+}
+
+.cart-row:last-child .cart-column {
+    border: none;
+}
+
 .cart-total {
     text-align: end;
     margin-top: 10px;
@@ -520,7 +523,7 @@ hr {
 .cart-total-title {
     font-weight: bold;
     font-size: 1.5em;
-    color: #333;
+    color: black;
     margin-right: 20px;
 }
 
@@ -573,6 +576,8 @@ hr {
     font-weight: bold;
 	width: 6em;
 	height: 2em;
+	margin-left: 100%;
+	padding: 5px;
 }
 
 .btn-danger:hover {
