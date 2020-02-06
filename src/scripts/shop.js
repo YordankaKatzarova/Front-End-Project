@@ -1,3 +1,4 @@
+var id = 0;
 
 function request(url, method, callback) {
     var xhttp = new XMLHttpRequest();
@@ -15,6 +16,7 @@ function loadCameras(data) {
     console.log(data);
     var camerasContainer = document.getElementById('camerasContainer');
     let camerasData = '';
+    let reserveOnlyOption = '<div>Reserve only</div>';
 
     for (let i = 0; i < data.cameras.length; i++) {
         camerasData += (
@@ -33,7 +35,13 @@ function loadCameras(data) {
             '</div>' +
             '<div class="cameraInfo">' +
             '<h2 class="cameraName">' + data.cameras[i].camera_name + '</h2>' +
-            '<h3 class="cameraPrice">' + data.cameras[i].camera_price + " лв" + '</h3>' +
+            '<h3 class="cameraPrice">' + data.cameras[i].camera_price + " $" + '</h3>');
+
+        if (data.cameras[i].camera_price > 300) {
+            camerasData += reserveOnlyOption;
+        }
+
+        camerasData += (
             '<button class="btn btn-primary shop-item-button" type="button"><i class="fa fa-shopping-cart"></i> Add to cart </button>' +
             '</div>' +
             '</article>');
@@ -42,16 +50,6 @@ function loadCameras(data) {
     camerasContainer.innerHTML = camerasData;
     ready()
 }
-
-
-
-// cart functions
-
-// if (document.readyState == 'loading') {
-//     document.addEventListener('DOMContentLoaded', ready)
-// } else {
-//     ready()
-// }
 
 function ready() {
     var removeCartItemButtons = document.getElementsByClassName('btn-danger')
@@ -82,7 +80,7 @@ function ready() {
 }
 
 function purchaseClicked() {
-    
+
     var cartItems = document.getElementsByClassName('cart-items')[0]
     while (cartItems.hasChildNodes()) {
         cartItems.removeChild(cartItems.firstChild)
@@ -112,6 +110,19 @@ function daysChanged(event) {
     updateCartTotal()
 }
 
+function itemReserve() {
+    var checkbox = document.getElementsByClassName('cart-checkbox-input')
+    if (checkbox[0].value == "on") {
+        var daysInputs = document.getElementsById();
+        daysInputs.value = 1
+    }
+    else {
+        checkbox.value = 0;
+    }
+
+    updateCartTotal();
+}
+
 function addToCartClicked(event) {
     var button = event.target
     var shopItem = button.parentElement.parentElement
@@ -125,30 +136,42 @@ function addItemToCart(title, price) {
     var cartRow = document.createElement('div')
     cartRow.classList.add('cart-row')
     var cartItems = document.getElementsByClassName('cart-items')[0]
-    var cartItemNames = cartItems.getElementsByClassName('cameraName')
+    var cartItemNames = cartItems.getElementsByClassName('cart-camera-name')
+    var priceToNumber = parseInt(price, 10);
+
     for (var i = 0; i < cartItemNames.length; i++) {
         if (cartItemNames[i].innerText == title) {
             alert('This item is already added to the cart')
             return
         }
     }
+    var checkboxReserve = '<div class="cart-checkbox cart-column"> <input id=' + id + ' class="cart-checkbox-input" type="checkbox" onclick="itemReserve()"> </div>';
+    var checkboxReserveNotAllowed = '<div class="cart-checkbox cart-column"> </div>'
     var cartRowContents = `
         <div class="cart-item cart-column">
             <span class="cart-camera-name">${title}</span>
         </div>
         <span class="cart-price cart-column">${price}</span>
         <div class="cart-quantity cart-column">
-            <input class="cart-quantity-input" type="number" value="1"> 
-		</div>
-		<div class="cart-checkbox cart-column">
-			<input class="cart-checkbox-input" type="checkbox"> 
-		</div>
-		<div class="cart-days cart-column">            		
-			<input class="cart-reserve-days-input" type="number" value="1">
+            <input class="cart-input cart-quantity-input" type="number" value="1"> 
+        </div>`;
+
+    if (priceToNumber < 300) {
+        cartRowContents += checkboxReserve;
+    } else {
+        cartRowContents += checkboxReserveNotAllowed;
+    }
+
+    let reserveOnly = `
+        <div class="cart-days cart-column">            		
+			<input id=${id} class="cart-input cart-reserve-days-input" type="number" value="0">
 		</div>
 		<div class="cart-remove cart-column"> 
 			<button class="btn btn-danger" type="button">REMOVE</button>
         </div>`
+
+    cartRowContents += reserveOnly;
+    id++;
     cartRow.innerHTML = cartRowContents
     cartItems.append(cartRow)
     cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem)
@@ -176,8 +199,8 @@ function updateCartTotal() {
 }
 
 function reserveItems() {
-	event.preventDefault();
-	window.open('reserve_form.html');
-  }
+    event.preventDefault();
+    window.open('reserve_form.html');
+}
 
 
