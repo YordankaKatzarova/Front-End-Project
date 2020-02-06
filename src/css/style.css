@@ -25,34 +25,13 @@ fa fa-user-circle-o {
 	display: left;
 }
 
-/* what is this about */
-
-.img-responsive {
-	width: 15em;
-	height: 11em;
-	margin: auto;
-}
-
-#about {
+.about-container {
 	text-align: justify;
 	margin-top: 0.7em;
 	margin-bottom: 0.7em;
 	font-size: 20px;
-}
-
-.inner {
-	float: left;
-	width: 13em;
-	height: 11em;
-	margin: auto;
-}
-
-.modal-body {
-	padding: 2em;
-}
-
-.panel {
-	background: rgba(255,255,255,0.9);
+	padding-left:20px; 
+	padding-right:20px;
 }
 
 
@@ -103,6 +82,7 @@ LOGIN & REGISTER
     font-size: 1.7rem;
     font-weight: 400;	
 }
+
 .contact-subtitle{
 	color: #D21109;
     font-size: 1.5rem;
@@ -191,15 +171,6 @@ p {
 	
 }
 
-/* 
-hr {
-    max-width: auto;
-    border-top: 3px solid #333;
-	border-radius: 1px;
-	margin-bottom: 10px;
-	margin-top: 5px;
-} */
-
 hr {
 	border: 0;
 	margin: 1.35em auto;
@@ -217,26 +188,24 @@ hr {
 
 .bottom{
 	background-image: radial-gradient(farthest-side at 50% 100%, rgba(51, 51, 51, 1), rgba(0, 0, 0, 0));
-   
 }
 
 
-/* navbar */
-
+/* NAVBAR */
 
 .topnav {
-  overflow: hidden;
-  background-color: #333;
+	overflow: hidden;
+	background-color: #333;
 }
 
 .topnav a {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 23px;
+	float: left;
+	display: block;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 23px;
 }
 
 .topnav a.logout{
@@ -244,23 +213,22 @@ hr {
 }
 
 .topnav a:hover {
-  background-color: #ddd;
-  color: black;
-  text-shadow: 0 1px 0 white;
+	background-color: #ddd;
+	color: black;
+	text-shadow: 0 1px 0 white;
 }
 
 .topnav a.active {
-  background-color: #FFB366;
-  color: white;
-  text-shadow: 0 1px 0 black;
-  
+	background-color: #FFB366;
+	color: white;
+	text-shadow: 0 1px 0 black;  
 }
 
 .topnav .icon {
-  display: none;
+	display: none;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 665px) {
   .topnav a:not(:first-child) {display: none;}
   .topnav a.icon {
     float: right;
@@ -268,7 +236,7 @@ hr {
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 665px) {
   .topnav.responsive {position: relative;}
   .topnav.responsive .icon {
     position: absolute;
@@ -282,104 +250,83 @@ hr {
   }
 }
 
-/* -------------- slideshow ----- */
-
-* {box-sizing:border-box}
+/* SLIDESHOW */
 
 /* Slideshow container */
+
 .slideshow-container {
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
-  padding-top: 20px;
+	max-width: 1000px;
+	position: relative;
+	margin: auto;
+	padding-top: 20px;
 }
 
 /* Hide the images by default */
 .mySlides {
-  display: none;
-  
+	display: none;  
 }
 
-/* Next & previous buttons */
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  width: auto;
-  margin-top: -22px;
-  padding: 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 28px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  /* user-select: none; */
-}
-
-/* Position the "next button" to the right */
+.prev, 
 .next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
+	cursor: pointer;
+	position: absolute;
+	top: 50%;
+	width: auto;
+	margin-top: -22px;
+	padding: 16px;
+	color: white;
+	font-weight: bold;
+	font-size: 28px;
+	transition: 0.6s ease;
+	border-radius: 0 3px 3px 0;
 }
 
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
+.next {
+	right: 0;
+	border-radius: 3px 0 0 3px;
 }
 
-/* Caption text */
-.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
+.prev:hover, 
+.next:hover {
+	background-color: rgba(0,0,0,0.8);
 }
 
-
-/* Fading animation */
 .fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
+	-webkit-animation-name: fade;
+	-webkit-animation-duration: 1.5s;
+	animation-name: fade;
+	animation-duration: 1.5s;
 }
 
 @-webkit-keyframes fade {
-  from {opacity: .4};
-  to {opacity: 1};
+	from {opacity: .4};
+	to {opacity: 1};
 }
 
 @keyframes fade {
-  from {opacity: .4};
-  to {opacity: 1};
+	from {opacity: .4};
+	to {opacity: 1};
 }
 
 
-/* ------- cameras */
+/* PRODUCTS */
 
 .products {
-  padding: 4rem 0;
+	padding: 4rem 0;
 }
 
 .shop-title {
-	/* background-image: radial-gradient(farthest-side at 50% 50%, rgba(51, 51, 51, 1), rgba(0, 0, 0, 0)); 
-	background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(51, 51, 51, 1), rgba(0, 0, 0, 0));*/
 	background-color:#333;
-	
 }
 
 .shop-title h2 {
-  color: white;
-  text-align: center;
-  font-size: 40px;
-  margin-bottom: 5rem;
-  text-transform: capitalize;
-  font-weight: 100;
-  font-family: "Josefin Slab", Helvetica, Arial, sans-serif;
-  
+	color: white;
+	text-align: center;
+	font-size: 40px;
+	margin-bottom: 5rem;
+	text-transform: capitalize;
+	font-weight: 100;
+	font-family: "Josefin Slab", Helvetica, Arial, sans-serif;  
   
 }
 
@@ -387,26 +334,24 @@ hr {
 	margin-top: auto;
 }
 
-.camerasContainer{
-	
-  width: 90vw;
-  margin: 0 auto;
-  max-width: 1170px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  grid-column-gap: 1.5rem;
-  grid-row-gap: 2rem;
+.camerasContainer{	
+	width: 90vw;
+	margin: 0 auto;
+	max-width: 1170px;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	grid-column-gap: 1.5rem;
+	grid-row-gap: 2rem;
 
 }
 
 
 .singleCamera {
- background-color: white;
- border-radius:20px;
- box-shadow:0px 6px 6px rgba(0, 0, 0, 0.13);
- display: flex;
-  flex-direction: column;
- 
+	background-color: white;
+	border-radius:20px;
+	box-shadow:0px 6px 6px rgba(0, 0, 0, 0.13);
+	display: flex;
+	flex-direction: column; 
 } 
 
 .cameraName { 
@@ -414,101 +359,97 @@ hr {
 	font-size: 1.1rem;
 	margin-top: 1rem;
 	letter-spacing: var(--mainSpacing);
-	text-align: center;
-	
-}
-.cameraPrice {
-  margin-top: 0.7rem;
-  letter-spacing: var(--mainSpacing);
-  color: #333;
-  text-align: center;
-  margin-bottom: 10px;
+	text-align: center;	
 }
 
+.cameraPrice {
+	margin-top: 0.7rem;
+	letter-spacing: var(--mainSpacing);
+	color: #333;
+	text-align: center;
+	margin-bottom: 10px;
+}
 
 .img-container {
-  position: relative;
-  overflow: hidden;
- 
+	position: relative;
+	overflow: hidden; 
 }
 
 .product-img {
-  display: block;
-  width: 100%;
-  min-height: 13rem;
-  transition: var(--mainTransition);
-   border-radius: 20px;
-  
+	display: block;
+	width: 100%;
+	min-height: 13rem;
+	transition: var(--mainTransition);
+	border-radius: 20px;  
 }
 
 .overlay {
-  position: absolute;
-  bottom: 0;
-  left: 100%;
-  right: 0;
-  background-color: #333;
-  overflow: hidden;
-  width: 0;
-  height: 100%;
-  transition: .5s ease;  
+	position: absolute;
+	bottom: 0;
+	left: 100%;
+	right: 0;
+	background-color: #333;
+	overflow: hidden;
+	width: 0;
+	height: 100%;
+	transition: .5s ease;  
 }
 
-.img-container:hover .overlay {
-  width: 100%;
-  left: 0;
-  border-radius:20px;
+.img-container:hover 
+.overlay {
+	width: 100%;
+	left: 0;
+	border-radius:20px;
 }
 
 .description {
-  white-space: nowrap; 
-  color: white;
-  font-size: auto;
-  font-weight:100%;
-  position: absolute;
-  overflow: hidden;
-  top: 40%;
-  left: 40%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
+	white-space: nowrap; 
+	color: white;
+	font-size: auto;
+	font-weight:100%;
+	position: absolute;
+	overflow: hidden;
+	top: 40%;
+	left: 40%;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
  
 }
 
+/* CART */
 
-
-/* ----------- cart ------------- */
-
-.content-section {
+.cart-container {
     margin: 1em;
 	background-color: white;
 	border-radius: 20px;
-}
-
-.container {
-    max-width: 1250px;
+	max-width: 1250px;
+	min-width:520px;
     margin: 0 auto;
     padding: 0 1.4em;
 }
-.section-header {
+
+
+.cart-header {
     font-weight: normal;
     color: #333;
     text-align: center;
     font-size: 2.5em;
 }
 
-
-.cart-header {
-    font-weight: bold;
-    font-size: 1.25em;
-    color: #333;
-}
-
 .cart-column {
     display: flex;
     align-items: center;
     border-bottom: 1px solid black;
-    /* margin-right: 1.5em; */
     padding-bottom: 10px;
     margin-top: 10px;
+}
+.cart-row:last-child {
+    border-bottom: 1px solid black;
+}
+
+.cart-row:last-child 
+.cart-column {
+    border: none;
 }
 
 .cart-row {
@@ -533,7 +474,6 @@ hr {
 	width: 20%;
 	padding-left: 1em;
 	padding-right: 1em;
-	/* --------- no padding if margin on cart-column active */
 }
 
 .cart-days{
@@ -544,13 +484,21 @@ hr {
 	width: 10%;
 }
 
+.cart-checkbox{
+	width: 10%;
+}
+
+.cart-checkbox-input{
+	margin-left:50%;	
+}
+
 .cart-camera-name {
     color: #333;
     margin-left: .1em;
     font-size: 1.2em;
 }
 
-.cart-quantity-input {
+.cart-input {
     height: 34px;
     width: 50px;
     border-radius: 5px;
@@ -563,35 +511,6 @@ hr {
     margin-right: 25px;
 }
 
-.cart-reserve-days-input {
-	height: 34px;
-	width: 50px;
-	border-radius: 5px;
-	border: 1px solid #FFB366;
-	background-color: #eee;
-	color: #333;
-	padding: 0;
-	text-align: center;
-	font-size: 1.2em;
-	margin-right: 25px;
-}
-
-.cart-checkbox{
-	width: 10%;
-}
-
-.cart-checkbox-input{
-	margin-left:50%;
-	
-}
-.cart-row:last-child {
-    border-bottom: 1px solid black;
-}
-
-.cart-row:last-child .cart-column {
-    border: none;
-}
-
 .cart-total {
     text-align: end;
     margin-top: 10px;
@@ -601,7 +520,7 @@ hr {
 .cart-total-title {
     font-weight: bold;
     font-size: 1.5em;
-    color: black;
+    color: #333;
     margin-right: 20px;
 }
 
@@ -618,15 +537,13 @@ hr {
 	font-weight: 550;
 	margin-left: 0;
 }
- /* -------------------- cart buttons ------------- */
-.btn {
-    text-align: center;
-    vertical-align: middle;
-    cursor: pointer;
 
-}
+ /* CART BUTTONS */
 
 .btn-primary {
+	text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
     background-color: #333;
     border: none;
     border-radius: 1.25rem;
@@ -637,9 +554,7 @@ hr {
     height: 2.5rem;
     width: 9rem;
 	float: right;
-	margin-right: 5px;
-	margin-top: 10px;
-	margin-bottom: 5px;
+	margin: 10px 5px 5px;
     font-weight: bold;
 }
 
@@ -664,10 +579,14 @@ hr {
     background-color: #CC4C4C;
 }
 
+.reserve-button{
+	display: contents;
+}
+
 .btn-purchase {
-    display: block;
     margin: 40px auto 80px auto;
     font-size: 1.75em;
+	display: block;
 }
 
 .btn-purchase:hover{
