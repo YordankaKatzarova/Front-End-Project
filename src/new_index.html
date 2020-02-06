@@ -53,9 +53,9 @@
 	
 	<div style="padding-left:20px; padding-right:20px;" id="about">
 	  
-	  <hr>
-	 <p class="about"> text here ------ </br> text here ------ </br>text here ------ </br>text here ------ </br> </p>
-	  <hr>
+	  <hr class="top">
+	 <p class="about"> text here ------ text here ------text here ------text here ------text here ------text here ------text here ------text here ------text here ------text here ------text here ------text here ------text here ------</br> text here ------ </br>text here ------ </br>text here ------ </br> </p>
+	  <hr class="bottom">
 	  
 	</div>
 
@@ -77,24 +77,29 @@
                 <span class="cart-item cart-header cart-column">ITEM</span>
                 <span class="cart-price cart-header cart-column">PRICE</span>
 				<span class="cart-quantity cart-header cart-column">QUANTITY</span>
-				<span class="cart-reserve cart-header cart-column">DAYS</span>
+				<span class="cart-reserve cart-header cart-column">RESERVE ONLY</span>
+				<span class="cart-days cart-header cart-column">DAYS</span>
+				<span class="cart-remove cart-column"></span>
             </div>
             <div class="cart-items"></div>
             <div class="cart-total">
                 <strong class="cart-total-title">Total:</strong>
-                <span class="cart-total-price">0 лв</span>
+                <span class="cart-total-price">0 $</span>
 			</div>
-			<div class="cart-reserve-fee">
-				<p>
-					Reservation of products under 300 лв. - 3 лв. per day <br>
-					Reservation of products above 300 лв. - 5 лв. per day <br>
+			<div class="cart-fee">
+				<p class="cart-reserve-fee">
+					Reservation of products under 300 $ - 3 $ per day <br>
+					Reservation of products above 300 $ - 5 $ per day <br>
 				</p>
 			</div>
-            <button class="btn btn-primary btn-purchase" type="button">Reserve</button>
+			<form class="reserve-button"  id="reserve-btn" action="shop.js" onsubmit="reserveItems()" method="POST">
+				<button class="btn btn-primary btn-purchase" type="submit" formtarget="_blank">Reserve</button>
+			</form>
         </section>
 		
 	</body>
 	
 	<script src="scripts/slideshow.js"></script>
 	<script src="scripts/shop.js"></script>
+	 
 </html>

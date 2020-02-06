@@ -82,7 +82,7 @@ function ready() {
 }
 
 function purchaseClicked() {
-    alert('Thank you for your purchase')
+    
     var cartItems = document.getElementsByClassName('cart-items')[0]
     while (cartItems.hasChildNodes()) {
         cartItems.removeChild(cartItems.firstChild)
@@ -134,13 +134,20 @@ function addItemToCart(title, price) {
     }
     var cartRowContents = `
         <div class="cart-item cart-column">
-            <span class="cameraName">${title}</span>
+            <span class="cart-camera-name">${title}</span>
         </div>
         <span class="cart-price cart-column">${price}</span>
         <div class="cart-quantity cart-column">
-            <input class="cart-quantity-input" type="number" value="1">
-            <input class="cart-reserve-days-input" type="number" value="1">
-            <button class="btn btn-danger" type="button">REMOVE</button>
+            <input class="cart-quantity-input" type="number" value="1"> 
+		</div>
+		<div class="cart-checkbox cart-column">
+			<input class="cart-checkbox-input" type="checkbox"> 
+		</div>
+		<div class="cart-days cart-column">            		
+			<input class="cart-reserve-days-input" type="number" value="1">
+		</div>
+		<div class="cart-remove cart-column"> 
+			<button class="btn btn-danger" type="button">REMOVE</button>
         </div>`
     cartRow.innerHTML = cartRowContents
     cartItems.append(cartRow)
@@ -168,6 +175,9 @@ function updateCartTotal() {
     document.getElementsByClassName('cart-total-price')[0].innerText = total + ' лв'
 }
 
-
+function reserveItems() {
+	event.preventDefault();
+	window.open('reserve_form.html');
+  }
 
 

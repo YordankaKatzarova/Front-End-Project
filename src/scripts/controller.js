@@ -20,6 +20,12 @@ function validateEmail (email) {
 }
 
 function validatePassword (pass) {
-	const regex = /^[a-z0-9]{6,}$/;
+	const regex = /^[a-z0-9]{6,25}$/;
 	return regex.test(String(pass).toLowerCase());
 }
+
+function validateContactForm() {
+	event.preventDefault();
+	alert("Your contact info was submitted!")
+	window.location.href="new_index.html"
+  }

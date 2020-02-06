@@ -8,7 +8,8 @@
 
 html,
 body,
-.auth {
+.auth,
+.auth-contact {
     width: 100%;
     height: 100%;
 	
@@ -36,7 +37,7 @@ fa fa-user-circle-o {
 	text-align: justify;
 	margin-top: 0.7em;
 	margin-bottom: 0.7em;
-	font-size: 20pxem;
+	font-size: 20px;
 }
 
 .inner {
@@ -67,6 +68,12 @@ LOGIN & REGISTER
 	z-index: -1;
 }
 
+.auth-contact{
+	display: flex;
+	left: 0px;
+	top: 0px;
+	z-index: -1;
+}
 .auth-form {
     border-radius: 0.5rem;
     background-color: #FFF;
@@ -87,11 +94,27 @@ LOGIN & REGISTER
 }
 
 .auth-subtitle {
-    color: #848694;
-    font-size: 1.7rem;
-    font-weight: 400;
     margin-bottom: 1.7rem;
     max-width: 100%;
+}
+
+.login-register-subtitle{
+	color: #848694;
+    font-size: 1.7rem;
+    font-weight: 400;	
+}
+.contact-subtitle{
+	color: #D21109;
+    font-size: 1.5rem;
+    font-weight: 600;
+	margin: auto;
+	padding-bottom: 20px;
+}
+
+.contact-msg{
+	color: #333;
+    font-size: 1rem;
+    font-weight: 500;
 }
 
 .auth-input {
@@ -164,16 +187,37 @@ LOGIN & REGISTER
 p {
     font-size: 1.25em;
     color: #333;
-    margin-left: 1em;
+    margin-left: 1.7em;
 	
 }
 
+/* 
 hr {
     max-width: auto;
     border-top: 3px solid #333;
 	border-radius: 1px;
 	margin-bottom: 10px;
 	margin-top: 5px;
+} */
+
+hr {
+	border: 0;
+	margin: 1.35em auto;
+	max-width: àuto;
+	box-sizing: border-box;
+	height: 30px;
+    width: 100%;
+    position: relative;
+}
+
+.top {
+   background-image: radial-gradient(farthest-side at 50% 0%, rgba(51, 51, 51, 1), rgba(0, 0, 0, 0));
+  
+}
+
+.bottom{
+	background-image: radial-gradient(farthest-side at 50% 100%, rgba(51, 51, 51, 1), rgba(0, 0, 0, 0));
+   
 }
 
 
@@ -321,7 +365,10 @@ hr {
 }
 
 .shop-title {
-	background-color: #333;
+	/* background-image: radial-gradient(farthest-side at 50% 50%, rgba(51, 51, 51, 1), rgba(0, 0, 0, 0)); 
+	background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(51, 51, 51, 1), rgba(0, 0, 0, 0));*/
+	background-color:#333;
+	
 }
 
 .shop-title h2 {
@@ -432,6 +479,8 @@ hr {
 
 .content-section {
     margin: 1em;
+	background-color: white;
+	border-radius: 20px;
 }
 
 .container {
@@ -457,7 +506,7 @@ hr {
     display: flex;
     align-items: center;
     border-bottom: 1px solid black;
-    margin-right: 1.5em;
+    /* margin-right: 1.5em; */
     padding-bottom: 10px;
     margin-top: 10px;
 }
@@ -467,7 +516,7 @@ hr {
 }
 
 .cart-item {
-    width: 45%;
+    width: 30%;
 }
 
 .cart-price {
@@ -477,54 +526,106 @@ hr {
 }
 
 .cart-quantity {
-    width: 35%;
+    width: 10%;
 }
 
-.cart-item-title {
+.cart-reserve{
+	width: 20%;
+	padding-left: 1em;
+	padding-right: 1em;
+	/* --------- no padding if margin on cart-column active */
+}
+
+.cart-days{
+	width: 10%;
+}
+
+.cart-remove{
+	width: 10%;
+}
+
+.cart-camera-name {
     color: #333;
-    margin-left: .5em;
+    margin-left: .1em;
     font-size: 1.2em;
 }
 
-.cart-item-image {
-    width: 75px;
-    height: auto;
-    border-radius: 10px;
-}
-
-/*
-.logout-button {
-    background-color: white;
-    border: none;
-    border-radius: 1.25rem;
-    color: black;
-    cursor: pointer;
-    font-size: 1rem;
+.cart-quantity-input {
+    height: 34px;
+    width: 50px;
+    border-radius: 5px;
+    border: 1px solid #FFB366;
+    background-color: #eee;
+    color: #333;
+    padding: 0;
     text-align: center;
-    height: 3rem;
-    width: 11rem;
-	float: right;
-	margin-right: 15px;
-	margin-top: 10px;
+    font-size: 1.2em;
+    margin-right: 25px;
 }
 
-.logout-button:hover,
-.logout-button:focus,
-.logout-button:active {
-    background-color: #FF8B4D;
-	color: white;
-	box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.13);
-	text-shadow: 0px 6px 6px rgba(0, 0, 0, 0.13);
-} */
+.cart-reserve-days-input {
+	height: 34px;
+	width: 50px;
+	border-radius: 5px;
+	border: 1px solid #FFB366;
+	background-color: #eee;
+	color: #333;
+	padding: 0;
+	text-align: center;
+	font-size: 1.2em;
+	margin-right: 25px;
+}
 
+.cart-checkbox{
+	width: 10%;
+}
 
+.cart-checkbox-input{
+	margin-left:50%;
+	
+}
+.cart-row:last-child {
+    border-bottom: 1px solid black;
+}
 
+.cart-row:last-child .cart-column {
+    border: none;
+}
+
+.cart-total {
+    text-align: end;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.cart-total-title {
+    font-weight: bold;
+    font-size: 1.5em;
+    color: black;
+    margin-right: 20px;
+}
+
+.cart-total-price {
+    color: #333;
+    font-size: 1.1em;
+}
+
+.cart-reserve-fee{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	color: #FF6F3B;
+	text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.13);
+	font-weight: 550;
+	margin-left: 0;
+}
+ /* -------------------- cart buttons ------------- */
 .btn {
     text-align: center;
     vertical-align: middle;
     cursor: pointer;
 
 }
+
 .btn-primary {
     background-color: #333;
     border: none;
@@ -553,64 +654,14 @@ hr {
     color: white;
     background-color: #EB5757;
     border: none;
-    border-radius: .3em;
+    border-radius: .5em;
     font-weight: bold;
+	width: 6em;
+	height: 2em;
 }
 
 .btn-danger:hover {
     background-color: #CC4C4C;
-}
-
-.cart-quantity-input {
-    height: 34px;
-    width: 50px;
-    border-radius: 5px;
-    border: 1px solid #56CCF2;
-    background-color: #eee;
-    color: #333;
-    padding: 0;
-    text-align: center;
-    font-size: 1.2em;
-    margin-right: 25px;
-}
-
-.cart-reserve-days-input {
-  height: 34px;
-  width: 50px;
-  border-radius: 5px;
-  border: 1px solid #56CCF2;
-  background-color: #eee;
-  color: #333;
-  padding: 0;
-  text-align: center;
-  font-size: 1.2em;
-  margin-right: 25px;
-}
-
-.cart-row:last-child {
-    border-bottom: 1px solid black;
-}
-
-.cart-row:last-child .cart-column {
-    border: none;
-}
-
-.cart-total {
-    text-align: end;
-    margin-top: 10px;
-    margin-right: 10px;
-}
-
-.cart-total-title {
-    font-weight: bold;
-    font-size: 1.5em;
-    color: black;
-    margin-right: 20px;
-}
-
-.cart-total-price {
-    color: #333;
-    font-size: 1.1em;
 }
 
 .btn-purchase {
@@ -619,18 +670,8 @@ hr {
     font-size: 1.75em;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.btn-purchase:hover{
+	background-color: white;
+	color: #333;
+}	
 
