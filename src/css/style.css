@@ -574,6 +574,19 @@ hr {
     margin-right: 25px;
 }
 
+.cart-reserve-days-input {
+  height: 34px;
+  width: 50px;
+  border-radius: 5px;
+  border: 1px solid #56CCF2;
+  background-color: #eee;
+  color: #333;
+  padding: 0;
+  text-align: center;
+  font-size: 1.2em;
+  margin-right: 25px;
+}
+
 .cart-row:last-child {
     border-bottom: 1px solid black;
 }

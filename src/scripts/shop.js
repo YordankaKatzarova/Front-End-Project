@@ -1,48 +1,49 @@
 
 function request(url, method, callback) {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-      callback(JSON.parse(this.responseText));
-    }
-  };
-  xhttp.open(method, url, true);
-  xhttp.send();
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            callback(JSON.parse(this.responseText));
+        }
+    };
+    xhttp.open(method, url, true);
+    xhttp.send();
 }
-
 request('https://c0a69d0c-f9ef-4ef7-be6a-f39493b8af03.mock.pstmn.io/cameras2', 'GET', loadCameras);
 
 function loadCameras(data) {
-  console.log(data);
-  var camerasContainer = document.getElementById('camerasContainer');
-  let camerasData = '';
+    console.log(data);
+    var camerasContainer = document.getElementById('camerasContainer');
+    let camerasData = '';
 
-  for (let i = 0; i < data.cameras.length; i++) {
-    camerasData += (
-      '<article class="singleCamera">' + 
-        '<div class="img-container">' +
-            '<img src="images/'+ data.cameras[i].camera_image + '"' + 'alt="product" class="product-img">'+
+    for (let i = 0; i < data.cameras.length; i++) {
+        camerasData += (
+            '<article class="singleCamera">' +
+            '<div class="img-container">' +
+            '<img src="images/' + data.cameras[i].camera_image + '"' + 'alt="product" class="product-img">' +
             '<div class="overlay">' +
-                '<div>' +
-                    '<p class="description">'+ 
-                    "Type: " + data.cameras[i].camera_type + '<br>' + 
-                    "Color: " + data.cameras[i].camera_color + '<br>' +
-                    "Manifacturer: " + data.cameras[i].camera_manifacturer + '<br>' +
-                    '</p>' +
-                '</div>' +
-            '</div>'+
-        '</div>' +
-         '<div class="cameraInfo">' +
+            '<div>' +
+            '<p class="description">' +
+            "Type: " + data.cameras[i].camera_type + '<br>' +
+            "Color: " + data.cameras[i].camera_color + '<br>' +
+            "Manifacturer: " + data.cameras[i].camera_manifacturer + '<br>' +
+            '</p>' +
+            '</div>' +
+            '</div>' +
+            '</div>' +
+            '<div class="cameraInfo">' +
             '<h2 class="cameraName">' + data.cameras[i].camera_name + '</h2>' +
-            '<h3 class="cameraPrice">' + data.cameras[i].camera_price + " лв" +'</h3>' +
+            '<h3 class="cameraPrice">' + data.cameras[i].camera_price + " лв" + '</h3>' +
             '<button class="btn btn-primary shop-item-button" type="button"><i class="fa fa-shopping-cart"></i> Add to cart </button>' +
-        '</div>'+
-     '</article>');
-	    
-  };
-  camerasContainer.innerHTML = camerasData;
-  document.addEventListener('DOMContentLoaded', ready)
+            '</div>' +
+            '</article>');
+
+    };
+    camerasContainer.innerHTML = camerasData;
+    ready()
 }
+
+
 
 // cart functions
 
@@ -65,10 +66,16 @@ function ready() {
         input.addEventListener('change', quantityChanged)
     }
 
+    var daysInputs = document.getElementsByClassName('cart-reserve-days-input')
+    for (var i = 0; i < daysInputs.length; i++) {
+        var input = daysInputs[i]
+        input.addEventListener('change', daysChanged)
+    }
+
     var addToCartButtons = document.getElementsByClassName('shop-item-button')
     for (var i = 0; i < addToCartButtons.length; i++) {
         var button = addToCartButtons[i]
-        button.addEventListener('click', console.log("bla"))
+        button.addEventListener('click', addToCartClicked)
     }
 
     document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked)
@@ -90,6 +97,14 @@ function removeCartItem(event) {
 }
 
 function quantityChanged(event) {
+    var input = event.target
+    if (isNaN(input.value) || input.value <= 0) {
+        input.value = 1
+    }
+    updateCartTotal()
+}
+
+function daysChanged(event) {
     var input = event.target
     if (isNaN(input.value) || input.value <= 0) {
         input.value = 1
@@ -124,12 +139,14 @@ function addItemToCart(title, price) {
         <span class="cart-price cart-column">${price}</span>
         <div class="cart-quantity cart-column">
             <input class="cart-quantity-input" type="number" value="1">
+            <input class="cart-reserve-days-input" type="number" value="1">
             <button class="btn btn-danger" type="button">REMOVE</button>
         </div>`
     cartRow.innerHTML = cartRowContents
     cartItems.append(cartRow)
     cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem)
     cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged)
+    cartRow.getElementsByClassName('cart-reserve-days-input')[0].addEventListener('change', daysChanged)
 }
 
 function updateCartTotal() {
@@ -140,12 +157,15 @@ function updateCartTotal() {
         var cartRow = cartRows[i]
         var priceElement = cartRow.getElementsByClassName('cart-price')[0]
         var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
-        var price = parseFloat(priceElement.innerText.replace('$', ''))
+        var daysElement = cartRow.getElementsByClassName('cart-reserve-days-input')[0]
+        var price = parseFloat(priceElement.innerText.replace('лв', ''))
         var quantity = quantityElement.value
-        total = total + (price * quantity)
+        var days = daysElement.value
+        var reserveFee = (price <= 300) ? 3 : 5;
+        total = total + (price * quantity) + (reserveFee * days)
     }
     total = Math.round(total * 100) / 100
-    document.getElementsByClassName('cart-total-price')[0].innerText = '$' + total
+    document.getElementsByClassName('cart-total-price')[0].innerText = total + ' лв'
 }
 
 
