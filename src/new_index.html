@@ -15,8 +15,9 @@
 
 <body>
 
+	<!-- Navigation bar -->
 	<div class="topnav" id="myTopnav">
-	  <a href="#home" class="active">RESERVEASY</a>
+	  <a class="active">RESERVEASY</a>
 	  <a href="#about">About</a>
 	  <a href="#cameras">Cameras</a>
 	  <a href="#cart">Cart <i class="fa fa-shopping-cart"></i></a>
@@ -31,8 +32,7 @@
 
 	<!-- Slideshow container -->
 	<div class="slideshow-container">
-
-	  <!-- Full-width images with number and caption text -->
+	
 	  <div class="mySlides fade">
 		<img src="images/photo1c.jpg" style="width:100%">
 	  </div>
@@ -49,55 +49,64 @@
 	  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
 	  <a class="next" onclick="plusSlides(1)">&#10095;</a>
 	</div>
+	
 	<br>
 	
-	<div style="padding-left:20px; padding-right:20px;" id="about">
+	<!-- About -->
+	<div class="about-container" id="about">
 	  
-	  <hr class="top">
-	 <p class="about"> text here ------ text here ------text here ------text here ------text here ------text here ------text here ------text here ------text here ------text here ------text here ------text here ------text here ------</br> text here ------ </br>text here ------ </br>text here ------ </br> </p>
-	  <hr class="bottom">
+		<hr class="top">
+		<p class="about"> Welcome to <b>ReservEasy</b>! </br> 
+			In our new webpage you can easily reserve cameras to buy later if you are busy and can not come to the shop now.
+			This way you make sure that your favourite camera will not go out of stock. </br>
+			Just pick some items below and choose for how many days you want them to be reserved. 
+			In this period you can come to our shop in Sofia, Aleksandar Malinov bvld. #34 and your cameras will be waiting for you! </br>
+			You can even choose some of the cheaper cameras for buying now with free shipping and cash on delivery. </br>
+		</p>	
+		<hr class="bottom">
 	  
 	</div>
 
-
-	 <section class="products">
-		  <div class="shop-title">
+	<!-- Products -->
+	<section class="products">
+	
+		<div class="shop-title">
 			<h2 id="cameras">our products</h2>
-		  </div>
-		  <div id="camerasContainer" class="camerasContainer">
-		  </div>
-	  </section>
-	  
-
-
-
-	 <section class="container content-section">
-            <h2 class="section-header" id="cart">CART</h2>
-            <div class="cart-row">
-                <span class="cart-item cart-header cart-column">ITEM</span>
-                <span class="cart-price cart-header cart-column">PRICE</span>
-				<span class="cart-quantity cart-header cart-column">QUANTITY</span>
-				<span class="cart-reserve cart-header cart-column">RESERVE ONLY</span>
-				<span class="cart-days cart-header cart-column">DAYS</span>
-				<span class="cart-remove cart-column"></span>
-            </div>
-            <div class="cart-items"></div>
-            <div class="cart-total">
-                <strong class="cart-total-title">Total:</strong>
-                <span class="cart-total-price">0 $</span>
-			</div>
-			<div class="cart-fee">
-				<p class="cart-reserve-fee">
-					Reservation of products under 300 $ - 3 $ per day <br>
-					Reservation of products above 300 $ - 5 $ per day <br>
-				</p>
-			</div>
-			<form class="reserve-button"  id="reserve-btn" action="shop.js" onsubmit="reserveItems()" method="POST">
-				<button class="btn btn-primary btn-purchase" type="submit" formtarget="_blank">Reserve</button>
-			</form>
-        </section>
+		</div>
+		<div id="camerasContainer" class="camerasContainer"></div>	
 		
-	</body>
+	</section>
+	  
+	 <!-- Cart -->
+	<section class="cart-container">
+		<h2 class="cart-header" id="cart">CART</h2>
+		<div class="cart-row">
+			<span class="cart-item cart-header cart-column">ITEM</span>
+			<span class="cart-price cart-header cart-column">PRICE</span>
+			<span class="cart-quantity cart-header cart-column">QUANTITY</span>
+			<span class="cart-reserve cart-header cart-column">RESERVE ONLY</span>
+			<span class="cart-days cart-header cart-column">DAYS</span>
+			<span class="cart-remove cart-column"></span>
+		</div>
+		<div class="cart-items"></div>
+		<div class="cart-total">
+			<strong class="cart-total-title">Total:</strong>
+			<span class="cart-total-price">0 $</span>
+		</div>
+		<div class="cart-fee">
+			<p class="cart-reserve-fee">
+				Reservation of products under 300 $ - 3 $ per day <br>
+				Reservation of products above 300 $ - 5 $ per day <br>
+			</p>
+		</div>
+		<div class="reserve">
+			<form class="reserve-button"  id="reserve-btn" action="shop.js" onsubmit="reserveItems()" method="POST">
+				<button class="btn-primary btn-purchase" type="submit" formtarget="_blank">Reserve</button>
+			</form>
+		<div>
+    </section>
+		
+</body>
 	
 	<script src="scripts/slideshow.js"></script>
 	<script src="scripts/shop.js"></script>
