@@ -165,7 +165,7 @@ LOGIN & REGISTER
 /* SHOP */
 
 p {
-    font-size: 1.25em;
+    font-size: calc(12px + 0.8vw);
     color: #333;
     margin-left: 1.7em;
 	
