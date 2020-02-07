@@ -1,3 +1,4 @@
+"use strict";
 function validateForm() {
 	event.preventDefault();
     var inputPassword = document.forms["auth-form"]["password"].value;

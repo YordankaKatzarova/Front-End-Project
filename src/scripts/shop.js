@@ -1,3 +1,4 @@
+"use strict";
 var id = 0;
 
 function request(url, method, callback) {
@@ -48,7 +49,7 @@ function loadCameras(data) {
 
     };
     camerasContainer.innerHTML = camerasData;
-    ready()
+    ready();
 }
 
 function ready() {
@@ -60,93 +61,94 @@ function ready() {
 
     var quantityInputs = document.getElementsByClassName('cart-quantity-input')
     for (var i = 0; i < quantityInputs.length; i++) {
-        var input = quantityInputs[i]
-        input.addEventListener('change', quantityChanged)
+        var input = quantityInputs[i];
+        input.addEventListener('change', quantityChanged);
     }
 
     var daysInputs = document.getElementsByClassName('cart-reserve-days-input')
     for (var i = 0; i < daysInputs.length; i++) {
-        var input = daysInputs[i]
-        input.addEventListener('change', daysChanged)
+        var input = daysInputs[i];
+        input.addEventListener('change', daysChanged);
     }
 
     var addToCartButtons = document.getElementsByClassName('shop-item-button')
     for (var i = 0; i < addToCartButtons.length; i++) {
-        var button = addToCartButtons[i]
-        button.addEventListener('click', addToCartClicked)
+        var button = addToCartButtons[i];
+        button.addEventListener('click', addToCartClicked);
     }
 
-    document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked)
+    document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked);
 }
 
 function purchaseClicked() {
 
-    var cartItems = document.getElementsByClassName('cart-items')[0]
+    var cartItems = document.getElementsByClassName('cart-items')[0];
     while (cartItems.hasChildNodes()) {
-        cartItems.removeChild(cartItems.firstChild)
+        cartItems.removeChild(cartItems.firstChild);
     }
-    updateCartTotal()
-}
-
-function removeCartItem(event) {
-    var buttonClicked = event.target
-    buttonClicked.parentElement.parentElement.remove()
-    updateCartTotal()
-}
-
-function quantityChanged(event) {
-    var input = event.target
-    if (isNaN(input.value) || input.value <= 0) {
-        input.value = 1
-    }
-    updateCartTotal()
-}
-
-function daysChanged(event) {
-    var input = event.target
-    if (isNaN(input.value) || input.value <= 0) {
-        input.value = 1
-    }
-    updateCartTotal()
-}
-
-function itemReserve() {
-    var checkbox = document.getElementsByClassName('cart-checkbox-input')
-    if (checkbox[0].value == "on") {
-        var daysInputs = document.getElementsById();
-        daysInputs.value = 1
-    }
-    else {
-        checkbox.value = 0;
-    }
-
     updateCartTotal();
 }
 
+function removeCartItem(event) {
+    var buttonClicked = event.target;
+    buttonClicked.parentElement.parentElement.remove();
+    updateCartTotal();
+}
+
+function quantityChanged(event) {
+    var input = event.target;
+    if (isNaN(input.value) || input.value <= 0) {
+        input.value = 1;
+    }
+    updateCartTotal();
+}
+
+function daysChanged(event) {
+    var input = event.target;
+    if (isNaN(input.value) || input.value <= 0) {
+        input.value = 1;
+    }
+    updateCartTotal();
+}
+
+function addReserveDays() {
+    var checkboxes = document.getElementsByClassName('cart-checkbox-input');
+    var daysInputs = document.getElementsByClassName('cart-reserve-days-input');
+    let flag = true;
+
+    for (let i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].value == "on" && daysInputs[checkboxes[i].id]) {
+            flag = false;
+            alert("Must choose days to reserve");
+        }
+    };
+    return flag;
+}
+
 function addToCartClicked(event) {
-    var button = event.target
-    var shopItem = button.parentElement.parentElement
-    var title = shopItem.getElementsByClassName('cameraName')[0].innerText
-    var price = shopItem.getElementsByClassName('cameraPrice')[0].innerText
-    addItemToCart(title, price)
-    updateCartTotal()
+    var button = event.target;
+    var shopItem = button.parentElement.parentElement;
+    var title = shopItem.getElementsByClassName('cameraName')[0].innerText;
+    var price = shopItem.getElementsByClassName('cameraPrice')[0].innerText;
+    addItemToCart(title, price);
+    updateCartTotal();
 }
 
 function addItemToCart(title, price) {
-    var cartRow = document.createElement('div')
-    cartRow.classList.add('cart-row')
-    var cartItems = document.getElementsByClassName('cart-items')[0]
-    var cartItemNames = cartItems.getElementsByClassName('cart-camera-name')
+    var cartRow = document.createElement('div');
+    cartRow.classList.add('cart-row');
+    var cartItems = document.getElementsByClassName('cart-items')[0];
+    var cartItemNames = cartItems.getElementsByClassName('cart-camera-name');
     var priceToNumber = parseInt(price, 10);
 
     for (var i = 0; i < cartItemNames.length; i++) {
         if (cartItemNames[i].innerText == title) {
             alert('This item is already added to the cart')
-            return
+            return;
         }
     }
-    var checkboxReserve = '<div class="cart-checkbox cart-column"> <input id=' + id + ' class="cart-checkbox-input" type="checkbox" onclick="itemReserve()"> </div>';
-    var checkboxReserveNotAllowed = '<div class="cart-checkbox cart-column"> </div>'
+    var checkboxReserve = '<div class="cart-checkbox cart-column"> <input id=' + id + ' class="cart-checkbox-input" type="checkbox" onclick="addReserveDays()"> </div>';
+    var checkboxReserveNotAllowed = '<div class="cart-checkbox cart-column"> </div>';
     var cartRowContents = `
         <div class="cart-item cart-column">
             <span class="cart-camera-name">${title}</span>
@@ -172,35 +174,38 @@ function addItemToCart(title, price) {
 
     cartRowContents += reserveOnly;
     id++;
-    cartRow.innerHTML = cartRowContents
-    cartItems.append(cartRow)
-    cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem)
-    cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged)
-    cartRow.getElementsByClassName('cart-reserve-days-input')[0].addEventListener('change', daysChanged)
+    cartRow.innerHTML = cartRowContents;
+    cartItems.append(cartRow);
+    cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem);
+    cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged);
+    cartRow.getElementsByClassName('cart-reserve-days-input')[0].addEventListener('change', daysChanged);
 }
 
 function updateCartTotal() {
-    var cartItemContainer = document.getElementsByClassName('cart-items')[0]
-    var cartRows = cartItemContainer.getElementsByClassName('cart-row')
-    var total = 0
+    var cartItemContainer = document.getElementsByClassName('cart-items')[0];
+    var cartRows = cartItemContainer.getElementsByClassName('cart-row');
+    var total = 0;
     for (var i = 0; i < cartRows.length; i++) {
-        var cartRow = cartRows[i]
-        var priceElement = cartRow.getElementsByClassName('cart-price')[0]
-        var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
-        var daysElement = cartRow.getElementsByClassName('cart-reserve-days-input')[0]
-        var price = parseFloat(priceElement.innerText.replace('лв', ''))
-        var quantity = quantityElement.value
-        var days = daysElement.value
+        var cartRow = cartRows[i];
+        var priceElement = cartRow.getElementsByClassName('cart-price')[0];
+        var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0];
+        var daysElement = cartRow.getElementsByClassName('cart-reserve-days-input')[0];
+        var price = parseFloat(priceElement.innerText.replace('$', ''));
+        var quantity = quantityElement.value;
+        var days = daysElement.value;
         var reserveFee = (price <= 300) ? 3 : 5;
-        total = total + (price * quantity) + (reserveFee * days)
+        total = total + (price * quantity) + (reserveFee * days);
     }
-    total = Math.round(total * 100) / 100
-    document.getElementsByClassName('cart-total-price')[0].innerText = total + ' лв'
+    total = Math.round(total * 100) / 100;
+    document.getElementsByClassName('cart-total-price')[0].innerText = '$ ' + total;
 }
 
 function reserveItems() {
-    event.preventDefault();
-    window.open('reserve_form.html');
+    if(addReserveDays()){
+        event.preventDefault();
+        window.open('reserve_form.html');
+    }
+    
 }
 
 
