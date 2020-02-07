@@ -383,6 +383,13 @@ hr {
 	border-radius: 20px;  
 }
 
+.reserve-only-msg{
+	margin: 18px 1px 18px 13px;
+	float: left;
+	color: red;
+	
+}
+
 .overlay {
 	position: absolute;
 	bottom: 0;
@@ -428,15 +435,16 @@ hr {
     padding: 0 1.4em;
 }
 
-.cart-header {
+/*.cart-header {
     font-weight: bold;
     font-size: 1.25em;
     color: #333;
     text-align: center;
-}
+}*/
 
 .cart-title{
 	font-size: 2.5em;
+	text-align: center;
 }
 
 .cart-column {
@@ -445,7 +453,6 @@ hr {
     border-bottom: 1px solid black;
     padding-bottom: 10px;
     margin-top: 10px;
-	margin-right: 1.5em;
 }
 
 .cart-row {
@@ -467,9 +474,10 @@ hr {
 }
 
 .cart-reserve{
-	width: 20%;
-	padding-left: 1em;
-	padding-right: 1em;
+	width: 15%;
+	padding-left: 3px;
+	padding-right: 3px;
+	font-size:15px;
 }
 
 .cart-days{
@@ -504,7 +512,7 @@ hr {
 }
 
 .cart-checkbox-input{
-	margin-left:50%;
+	margin-left:35%;
 }
 .cart-row:last-child {
     border-bottom: 1px solid black;
@@ -535,10 +543,12 @@ hr {
 .cart-reserve-fee{
 	padding-top: 10px;
 	padding-bottom: 10px;
-	color: #FF6F3B;
-	text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.13);
-	font-weight: 550;
+	color: red;
 	margin-left: 0;
+	font-size: 17px;
+	/*color: #FF6F3B;
+	text-shadow: 0px 4px 6px rgba(0, 0, 0, 0.13);
+	font-weight: 550;*/
 }
 
  /* CART BUTTONS */
@@ -576,7 +586,7 @@ hr {
     font-weight: bold;
 	width: 6em;
 	height: 2em;
-	margin-left: 100%;
+	margin-left: 10%;
 	padding: 5px;
 }
 
@@ -599,3 +609,8 @@ hr {
 	color: #333;
 }	
 
+@media screen and (max-width: 590px) {
+  .cart-container{
+	  min-width:570px;
+  }
+}

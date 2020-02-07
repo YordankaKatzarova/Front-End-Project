@@ -16,7 +16,7 @@ function loadCameras(data) {
     console.log(data);
     var camerasContainer = document.getElementById('camerasContainer');
     let camerasData = '';
-    let reserveOnlyOption = '<div>Reserve only</div>';
+    let reserveOnlyOption = '<div class="reserve-only-msg">Reserve only</div>';
 
     for (let i = 0; i < data.cameras.length; i++) {
         camerasData += (
